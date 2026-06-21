@@ -18,6 +18,8 @@ REDIRECT_URI = os.environ.get("https://moon-1pojt6nqj-mehul-sharmas-projects-fa3
 @app.route('/api/auth/discord')
 def discord_login():
     return redirect(f"https://discord.com/oauth2/authorize?client_id={DISCORD_CLIENT_ID}&redirect_uri={REDIRECT_URI}&response_type=code&scope=identify")
+print(f"DEBUG: Redirecting to {auth_url}") 
+    return redirect(auth_url)
 
 @app.route('/api/callback')
 def callback():
