@@ -11,7 +11,7 @@ app.secret_key = os.environ.get("FLASK_SECRET", "change-this-to-a-random-string"
 resend.api_key = os.environ.get("re_6nVv882w_LS24pN1wVMTQT9MtntZJKMPQ")
 DISCORD_CLIENT_ID = os.environ.get("1518239264108843048")
 DISCORD_CLIENT_SECRET = os.environ.get("J8u8QN29F-QDAskJmOYAlALx9ysMQW7x")
-REDIRECT_URI = os.environ.get("REDIRECT_URI") # e.g., https://your-app.vercel.app/api/callback
+REDIRECT_URI = os.environ.get("https://moon-1pojt6nqj-mehul-sharmas-projects-fa35c4d3.vercel.app") # e.g., https://your-app.vercel.app/api/callback
 
 # --- AUTH ROUTES ---
 
