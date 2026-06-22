@@ -2,123 +2,251 @@
 <html lang="en">
 
 <head>
-  <!-- Global Metadata -->
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    html {
-      background: hsl(36, 18%, 8%);
-      color-scheme: dark light;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    html[data-theme="light"] {
-      background: hsl(42, 46%, 92%);
-      color-scheme: light;
-    }
+<title>The Dutton Ranch</title>
 
-    body {
-      background: inherit;
-    }
-  </style>
-
-  <script>
-    (() => {
-      const storageKey = 'theme';
-
-      const getStoredTheme = () => {
-        try {
-          return localStorage.getItem(storageKey);
-        } catch {
-          return null;
-        }
-      };
-
-      const systemTheme = () =>
-        window.matchMedia('(prefers-color-scheme: light)').matches
-          ? 'light'
-          : 'dark';
-
-      document.documentElement.dataset.theme =
-        getStoredTheme() ?? systemTheme();
-    })();
-  </script>
-
-  <meta name="generator" content="Astro v6.4.6">
-
-  <link rel="sitemap" href="/sitemap-index.xml">
-
-  <!-- Favicons -->
-  <link rel="icon" href="/favicon.ico">
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-
-  <link rel="apple-touch-icon"
-        href="/apple-touch-icon.png">
-
-  <link rel="manifest"
-        href="/site.webmanifest">
+<meta name="description"
+content="Welcome to The Dutton Ranch Discord.">
 
 
-  <!-- Fonts -->
-  <link rel="preconnect"
-        href="https://fonts.googleapis.com">
+<style>
 
-  <link rel="preconnect"
-        href="https://fonts.gstatic.com"
-        crossorigin>
-
-  <link href="https://fonts.googleapis.com/css2?family=Alegreya&display=swap"
-        rel="stylesheet">
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Georgia, serif;
+}
 
 
-  <!-- SEO -->
-  <title>The Dutton Ranch</title>
+html{
+  background:#18130d;
+  color:white;
+}
 
-  <meta name="description"
-    content="Join the Dutton Ranch Discord.">
+
+body{
+  min-height:100vh;
+}
 
 
+/* Header */
+
+header{
+  padding:25px;
+}
+
+
+nav{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+
+.brand{
+  color:white;
+  text-decoration:none;
+  font-size:28px;
+  font-weight:bold;
+}
+
+
+/* Theme button */
+
+button{
+
+  padding:10px 18px;
+  border-radius:20px;
+  border:none;
+  cursor:pointer;
+  background:#b58a4a;
+  color:white;
+
+}
+
+
+
+/* Hero */
+
+.hero{
+
+height:80vh;
+
+display:flex;
+
+flex-direction:column;
+
+justify-content:center;
+
+align-items:center;
+
+text-align:center;
+
+padding:30px;
+
+}
+
+
+.hero h1{
+
+font-size:55px;
+
+margin-bottom:20px;
+
+}
+
+
+.hero p{
+
+max-width:600px;
+
+font-size:20px;
+
+opacity:.8;
+
+line-height:1.5;
+
+}
+
+
+
+/* Discord button */
+
+.join{
+
+margin-top:30px;
+
+display:inline-block;
+
+background:#b58a4a;
+
+color:white;
+
+padding:15px 35px;
+
+border-radius:30px;
+
+text-decoration:none;
+
+font-size:18px;
+
+transition:.2s;
+
+}
+
+
+.join:hover{
+
+transform:scale(1.05);
+
+}
+
+
+
+/* Light theme */
+
+.light{
+
+background:#f2e7d0;
+
+color:#25170d;
+
+}
+
+
+.light .brand{
+
+color:#25170d;
+
+}
+
+
+</style>
 
 </head>
 
 
 <body>
 
+
 <header>
 
-<nav class="site-nav">
-
-<a class="brand" href="/">
-
-<svg class="brand-mark"
-     viewBox="180 48 152 416">
-
-<path fill="currentColor"
-d="M311.7,225.6h-48.2l10.8-156.7c...">
-</path>
-
-</svg>
+<nav>
 
 
-<span class="brand-name">
-The Dutton Ranch 
-</span>
+<a class="brand">
 
+🌵 The Dutton Ranch
 
 </a>
 
 
-<button class="theme-toggle"
-        type="button"
-        onclick="window.toggleTheme?.()">
 
-Toggle Theme
+<button onclick="toggleTheme()">
+
+Theme
 
 </button>
 
 
-</div>
-
 </nav>
 
 </header>
+
+
+
+<section class="hero">
+
+
+<h1>
+
+Welcome to The Dutton Ranch
+
+</h1>
+
+
+
+<p>
+
+A place for ranch stories, adventures, community, and good conversations.
+
+</p>
+
+
+
+<a class="join"
+
+href="https://discord.gg/XatbESvgj6"
+
+target="_blank">
+
+Join Discord
+
+</a>
+
+
+</section>
+
+
+
+<script>
+
+
+function toggleTheme(){
+
+document.documentElement.classList.toggle("light");
+
+}
+
+
+</script>
+
+
+
+</body>
+
+</html>
