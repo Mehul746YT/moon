@@ -9,191 +9,154 @@
 <title>The Dutton Ranch</title>
 
 <meta name="description"
-content="Welcome to The Dutton Ranch Discord.">
-
+content="The Dutton Ranch Discord community.">
 
 <style>
 
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:Georgia, serif;
+/* RESET */
+html, body {
+	margin:0;
+	padding:0;
+	height:100%;
+	font-family: Georgia, serif;
+	color:#f5efe3;
+	overflow:hidden;
 }
 
-
-html{
-  background:#18130d;
-  color:white;
+/* BACKGROUND */
+body {
+	background:
+	linear-gradient(to bottom, rgba(0,0,0,.7), rgba(0,0,0,.95)),
+	url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee")
+	center/cover no-repeat fixed;
 }
 
-
-body{
-  min-height:100vh;
+/* HEADER */
+header {
+	padding:25px 40px;
+	position:fixed;
+	top:0;
+	width:100%;
+	display:flex;
+	justify-content:space-between;
+	align-items:center;
+	z-index:10;
+	backdrop-filter: blur(6px);
+	background:rgba(0,0,0,.35);
 }
 
-
-/* Header */
-
-header{
-  padding:25px;
+.brand {
+	font-size:22px;
+	letter-spacing:2px;
+	text-decoration:none;
+	color:#f5efe3;
 }
 
-
-nav{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
+.button {
+	background:#b08a4a;
+	color:#111;
+	padding:12px 22px;
+	border-radius:30px;
+	text-decoration:none;
+	font-weight:bold;
 }
 
-
-.brand{
-  color:white;
-  text-decoration:none;
-  font-size:28px;
-  font-weight:bold;
+/* HERO */
+.hero {
+	height:100vh;
+	display:flex;
+	align-items:center;
+	justify-content:center;
+	text-align:center;
+	position:relative;
 }
 
-
-/* Theme button */
-
-button{
-
-  padding:10px 18px;
-  border-radius:20px;
-  border:none;
-  cursor:pointer;
-  background:#b58a4a;
-  color:white;
-
+.hero-inner {
+	max-width:800px;
+	animation: fadeIn 3s ease forwards;
+	opacity:0;
 }
 
-
-
-/* Hero */
-
-.hero{
-
-height:80vh;
-
-display:flex;
-
-flex-direction:column;
-
-justify-content:center;
-
-align-items:center;
-
-text-align:center;
-
-padding:30px;
-
+h1 {
+	font-size:64px;
+	margin:0;
 }
 
-
-.hero h1{
-
-font-size:55px;
-
-margin-bottom:20px;
-
+/* STORY MODE SCROLL (Netflix style) */
+.story {
+	position:absolute;
+	bottom:-100%;
+	width:100%;
+	max-width:700px;
+	text-align:center;
+	font-size:22px;
+	line-height:1.8;
+	animation: scrollUp 18s linear infinite;
+	opacity:.9;
 }
 
-
-.hero p{
-
-max-width:600px;
-
-font-size:20px;
-
-opacity:.8;
-
-line-height:1.5;
-
+/* DUST PARTICLES */
+.dust {
+	position:absolute;
+	width:4px;
+	height:4px;
+	background:#d8c6a3;
+	border-radius:50%;
+	opacity:.4;
+	animation: floatDust 12s linear infinite;
 }
 
+.dust:nth-child(1){left:10%; top:80%; animation-duration:10s;}
+.dust:nth-child(2){left:25%; top:90%; animation-duration:14s;}
+.dust:nth-child(3){left:40%; top:85%; animation-duration:12s;}
+.dust:nth-child(4){left:60%; top:95%; animation-duration:16s;}
+.dust:nth-child(5){left:75%; top:88%; animation-duration:11s;}
+.dust:nth-child(6){left:90%; top:92%; animation-duration:13s;}
 
-
-/* Discord button */
-
-.join{
-
-margin-top:30px;
-
-display:inline-block;
-
-background:#b58a4a;
-
-color:white;
-
-padding:15px 35px;
-
-border-radius:30px;
-
-text-decoration:none;
-
-font-size:18px;
-
-transition:.2s;
-
+/* ANIMATIONS */
+@keyframes fadeIn {
+	to {opacity:1;}
 }
 
-
-.join:hover{
-
-transform:scale(1.05);
-
+@keyframes scrollUp {
+	0% {transform: translateY(100%);}
+	100% {transform: translateY(-200%);}
 }
 
-
-
-/* Light theme */
-
-.light{
-
-background:#f2e7d0;
-
-color:#25170d;
-
+@keyframes floatDust {
+	0% {transform: translateY(0) translateX(0); opacity:.2;}
+	50% {opacity:.6;}
+	100% {transform: translateY(-120vh) translateX(20px); opacity:0;}
 }
 
-
-.light .brand{
-
-color:#25170d;
-
+footer {
+	position:absolute;
+	bottom:20px;
+	width:100%;
+	text-align:center;
+	opacity:.6;
 }
-
 
 </style>
 
 </head>
-
 
 <body>
 
 
 <header>
 
-<nav>
-
-
 <a class="brand">
-
-🌵 The Dutton Ranch
-
+THE DUTTON RANCH
 </a>
 
+<a class="button"
+href="https://discord.gg/XatbESvgj6"
+target="_blank">
 
+Join Discord
 
-<button onclick="toggleTheme()">
-
-Theme
-
-</button>
-
-
-</nav>
+</a>
 
 </header>
 
@@ -201,52 +164,45 @@ Theme
 
 <section class="hero">
 
+<div class="hero-inner">
 
-<h1>
+<h1>The Ranch Lives</h1>
 
-Welcome to The Dutton Ranch
-
-</h1>
-
+</div>
 
 
-<p>
+<div class="story">
 
-A place for ranch stories, adventures, community, and good conversations.
+Once upon a dry land where wind writes stories into dust…  
+A place called The Dutton Ranch was born.  
 
-</p>
+Where voices echo like distant hooves…  
+Where friendships are built like fences in open land…  
+
+Every message is a trail.  
+Every member, a traveler.  
+
+And the ranch never sleeps.
+
+</div>
 
 
-
-<a class="join"
-
-href="https://discord.gg/XatbESvgj6"
-
-target="_blank">
-
-Join Discord
-
-</a>
-
+<!-- DUST PARTICLES -->
+<div class="dust"></div>
+<div class="dust"></div>
+<div class="dust"></div>
+<div class="dust"></div>
+<div class="dust"></div>
+<div class="dust"></div>
 
 </section>
 
 
 
-<script>
-
-
-function toggleTheme(){
-
-document.documentElement.classList.toggle("light");
-
-}
-
-
-</script>
-
+<footer>
+© The Dutton Ranch
+</footer>
 
 
 </body>
-
 </html>
