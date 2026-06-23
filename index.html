@@ -8,8 +8,7 @@
 
 <title>The Dutton Ranch</title>
 
-<meta name="description"
-content="The Dutton Ranch Discord community.">
+<meta name="description" content="The Dutton Ranch Discord community.">
 
 <style>
 
@@ -17,14 +16,14 @@ content="The Dutton Ranch Discord community.">
 html, body {
 	margin:0;
 	padding:0;
-	height:100%;
 	font-family: Georgia, serif;
 	color:#f5efe3;
-	overflow:hidden;
 }
 
-/* BACKGROUND */
+/* IMPORTANT FIX: allow scrolling */
 body {
+	min-height:100vh;
+	overflow-x:hidden;
 	background:
 	linear-gradient(to bottom, rgba(0,0,0,.7), rgba(0,0,0,.95)),
 	url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee")
@@ -48,8 +47,8 @@ header {
 .brand {
 	font-size:22px;
 	letter-spacing:2px;
-	text-decoration:none;
 	color:#f5efe3;
+	text-decoration:none;
 }
 
 .button {
@@ -73,8 +72,7 @@ header {
 
 .hero-inner {
 	max-width:800px;
-	animation: fadeIn 3s ease forwards;
-	opacity:0;
+	z-index:2;
 }
 
 h1 {
@@ -82,28 +80,34 @@ h1 {
 	margin:0;
 }
 
-/* STORY MODE SCROLL (Netflix style) */
-.story {
-	position:absolute;
-	bottom:-100%;
-	width:100%;
-	max-width:700px;
-	text-align:center;
+/* STORY SECTION (NOW REAL SCROLL CONTENT) */
+.story-section {
+	padding:120px 20px 80px;
+	max-width:900px;
+	margin:auto;
 	font-size:22px;
 	line-height:1.8;
-	animation: scrollUp 18s linear infinite;
-	opacity:.9;
+	opacity:.92;
+}
+
+/* story intro line style */
+.story-title {
+	font-size:28px;
+	text-align:center;
+	margin-bottom:30px;
+	letter-spacing:3px;
 }
 
 /* DUST PARTICLES */
 .dust {
-	position:absolute;
+	position:fixed;
 	width:4px;
 	height:4px;
 	background:#d8c6a3;
 	border-radius:50%;
 	opacity:.4;
 	animation: floatDust 12s linear infinite;
+	pointer-events:none;
 }
 
 .dust:nth-child(1){left:10%; top:80%; animation-duration:10s;}
@@ -113,27 +117,16 @@ h1 {
 .dust:nth-child(5){left:75%; top:88%; animation-duration:11s;}
 .dust:nth-child(6){left:90%; top:92%; animation-duration:13s;}
 
-/* ANIMATIONS */
-@keyframes fadeIn {
-	to {opacity:1;}
-}
-
-@keyframes scrollUp {
-	0% {transform: translateY(100%);}
-	100% {transform: translateY(-200%);}
-}
-
 @keyframes floatDust {
 	0% {transform: translateY(0) translateX(0); opacity:.2;}
 	50% {opacity:.6;}
 	100% {transform: translateY(-120vh) translateX(20px); opacity:0;}
 }
 
+/* FOOTER */
 footer {
-	position:absolute;
-	bottom:20px;
-	width:100%;
 	text-align:center;
+	padding:50px;
 	opacity:.6;
 }
 
@@ -143,12 +136,9 @@ footer {
 
 <body>
 
-
 <header>
 
-<a class="brand">
-THE DUTTON RANCH
-</a>
+<a class="brand">THE DUTTON RANCH</a>
 
 <a class="button"
 href="https://discord.gg/XatbESvgj6"
@@ -162,6 +152,7 @@ Join Discord
 
 
 
+<!-- HERO -->
 <section class="hero">
 
 <div class="hero-inner">
@@ -170,21 +161,39 @@ Join Discord
 
 </div>
 
+</section>
 
-<div class="story">
 
-Once upon a dry land where wind writes stories into dust…  
-A place called The Dutton Ranch was born.  
 
-Where voices echo like distant hooves…  
-Where friendships are built like fences in open land…  
+<!-- STORY CONTENT (NOW SCROLLABLE) -->
+<section class="story-section">
 
-Every message is a trail.  
-Every member, a traveler.  
-
-And the ranch never sleeps.
-
+<div class="story-title">
+A CINEMATIC STORY
 </div>
+
+Once upon a wind-bitten valley where dust remembers every step…  
+The Dutton Ranch was born.
+
+<br><br>
+
+Not from stone.  
+Not from gold.  
+
+But from voices that refused to fade.
+
+<br><br>
+
+Every message becomes a trail.  
+Every rider becomes part of something larger.
+
+<br><br>
+
+This is not just a Discord server.  
+This is a living world.
+
+</section>
+
 
 
 <!-- DUST PARTICLES -->
@@ -195,14 +204,11 @@ And the ranch never sleeps.
 <div class="dust"></div>
 <div class="dust"></div>
 
-</section>
-
 
 
 <footer>
 © The Dutton Ranch
 </footer>
-
 
 </body>
 </html>
