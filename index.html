@@ -22,7 +22,12 @@ html, body{
 	color:#f5efe3;
 }
 
-/* BACKGROUND LAYER */
+/* SMOOTH SCROLL */
+html{
+	scroll-behavior:smooth;
+}
+
+/* BACKGROUND */
 body{
 	min-height:100vh;
 	overflow-x:hidden;
@@ -90,7 +95,21 @@ header{
 	letter-spacing:3px;
 }
 
-/* STORY SECTION */
+/* IMAGE */
+.image-section{
+	padding:80px 20px;
+	display:flex;
+	justify-content:center;
+}
+
+.image-section img{
+	width:100%;
+	max-width:900px;
+	border-radius:20px;
+	box-shadow:0 20px 60px rgba(0,0,0,.6);
+}
+
+/* STORY */
 .story-section{
 	max-width:900px;
 	margin:0 auto;
@@ -103,19 +122,6 @@ header{
 	font-size:20px;
 }
 
-.image-section{
-	padding:60px 20px;
-	display:flex;
-	justify-content:center;
-}
-
-.image-section img{
-	width:100%;
-	max-width:900px;
-	border-radius:20px;
-	box-shadow:0 20px 60px rgba(0,0,0,.6);
-}
-	
 .story-title{
 	text-align:center;
 	font-size:28px;
@@ -155,6 +161,18 @@ footer{
 	opacity:.6;
 }
 
+/* SCROLL ANIMATION */
+.reveal{
+	opacity:0;
+	transform:translateY(40px);
+	transition:all 0.8s ease;
+}
+
+.reveal.active{
+	opacity:1;
+	transform:translateY(0);
+}
+
 /* MOBILE */
 @media(max-width:700px){
 	.hero h1{font-size:42px;}
@@ -184,7 +202,8 @@ Join Discord
 
 
 
-<section class="hero">
+<!-- HERO -->
+<section class="hero reveal">
 
 <h1>The Ranch Lives</h1>
 
@@ -194,15 +213,21 @@ SCROLL DOWN
 
 </section>
 
-<section class="image-section">
+
+
+<!-- IMAGE -->
+<section class="image-section reveal">
 
 <img 
 src="https://i.pinimg.com/736x/83/9a/bc/839abcaba46f56a0ea78f6b033d9e3de.jpg"
-alt="The Dutton Ranch landscape">
+alt="The Dutton Ranch">
 
 </section>
 
-<section class="story-section">
+
+
+<!-- STORY -->
+<section class="story-section reveal">
 
 <div class="story-title">
 A LIVING WORLD
@@ -241,6 +266,27 @@ This is a living community, not just a server.
 <footer>
 © The Dutton Ranch
 </footer>
+
+
+
+<script>
+
+const elements = document.querySelectorAll('.reveal');
+
+const observer = new IntersectionObserver((entries) => {
+	entries.forEach(entry => {
+		if(entry.isIntersecting){
+			entry.target.classList.add('active');
+		}
+	});
+}, {
+	threshold: 0.15
+});
+
+elements.forEach(el => observer.observe(el));
+
+</script>
+
 
 </body>
 </html>
