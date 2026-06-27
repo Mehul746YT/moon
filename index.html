@@ -49,15 +49,18 @@ header{
 	justify-content:space-between;
 	align-items:center;
 
-	background:rgba(0,0,0,.4);
-	backdrop-filter: blur(8px);
+	background:rgba(0,0,0,.5);
+	backdrop-filter: blur(10px);
+	border-bottom: 1px solid rgba(255,255,255,0.05);
 
 	z-index:1000;
 }
 
 .brand{
-	font-size:20px;
-	letter-spacing:2px;
+	font-size:22px;
+	letter-spacing:3px;
+	font-weight: bold;
+	text-transform: uppercase;
 }
 
 .header-links {
@@ -76,41 +79,79 @@ header{
 
 .nav-link:hover {
 	opacity: 0.7;
+	color: #b08a4a;
 }
 
 .button{
 	background:#b08a4a;
 	color:#111;
-	padding:10px 18px;
-	border-radius:25px;
+	padding:12px 22px;
+	border-radius:30px;
 	text-decoration:none;
 	font-weight:bold;
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.button:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 4px 15px rgba(176, 138, 74, 0.4);
+}
+
+.btn-secondary {
+	background: transparent;
+	color: #b08a4a;
+	border: 2px solid #b08a4a;
+	padding: 10px 22px;
+	border-radius: 30px;
+	text-decoration: none;
+	font-weight: bold;
+	transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+	background: #b08a4a;
+	color: #111;
 }
 
 /* HERO */
 .hero{
 	height:100vh;
-
 	display:flex;
 	flex-direction:column;
 	justify-content:center;
 	align-items:center;
-
 	text-align:center;
 	padding:80px 20px 20px;
 }
 
 .hero h1{
-	font-size:72px;
-	letter-spacing:1px;
+	font-size:84px;
+	letter-spacing:2px;
+	text-transform: uppercase;
+	text-shadow: 2px 4px 10px rgba(0,0,0,0.8);
+}
+
+.hero p {
+	font-size: 22px;
+	margin-top: 15px;
+	opacity: 0.8;
+	max-width: 600px;
+	line-height: 1.5;
 }
 
 /* SCROLL HINT */
 .scroll-hint{
-	margin-top:20px;
-	opacity:.7;
+	margin-top:40px;
+	opacity:.6;
 	font-size:14px;
-	letter-spacing:3px;
+	letter-spacing:4px;
+	animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+	0% { opacity: 0.4; }
+	50% { opacity: 1; }
+	100% { opacity: 0.4; }
 }
 
 /* IMAGE */
@@ -122,29 +163,116 @@ header{
 
 .image-section img{
 	width:100%;
-	max-width:900px;
-	border-radius:20px;
-	box-shadow:0 20px 60px rgba(0,0,0,.6);
+	max-width:1000px;
+	border-radius:15px;
+	box-shadow:0 20px 60px rgba(0,0,0,.8);
+	border: 1px solid rgba(255,255,255,0.1);
 }
 
 /* STORY */
 .story-section{
 	max-width:900px;
 	margin:0 auto;
-	padding:120px 25px;
-
-	background:rgba(0,0,0,.35);
-	border-radius:20px;
-
-	line-height:1.8;
-	font-size:20px;
+	padding:100px 30px;
+	background:rgba(0,0,0,.45);
+	border-radius:15px;
+	border: 1px solid rgba(255,255,255,0.05);
+	line-height:1.9;
+	font-size:22px;
+	text-align: center;
 }
 
 .story-title{
 	text-align:center;
-	font-size:28px;
-	margin-bottom:25px;
-	letter-spacing:3px;
+	font-size:32px;
+	margin-bottom:30px;
+	letter-spacing:4px;
+	color: #b08a4a;
+}
+
+/* FEATURES GRID */
+.features-section {
+	max-width: 1200px;
+	margin: 80px auto;
+	padding: 40px 20px;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+	gap: 40px;
+}
+
+.feature-card {
+	background: rgba(0,0,0,0.5);
+	padding: 50px 30px;
+	border-radius: 15px;
+	border: 1px solid rgba(255,255,255,0.08);
+	text-align: center;
+	transition: transform 0.4s ease, background 0.4s ease;
+}
+
+.feature-card:hover {
+	transform: translateY(-10px);
+	background: rgba(0,0,0,0.7);
+	border-color: rgba(176, 138, 74, 0.3);
+}
+
+.feature-card h3 {
+	font-size: 26px;
+	color: #b08a4a;
+	margin-bottom: 20px;
+	letter-spacing: 2px;
+}
+
+.feature-card p {
+	font-size: 17px;
+	line-height: 1.7;
+	opacity: 0.85;
+}
+
+/* QUOTE DIVIDER */
+.quote-section {
+	text-align: center;
+	padding: 80px 20px;
+	margin: 40px 0;
+	background: rgba(0,0,0,0.6);
+	border-top: 1px solid rgba(176, 138, 74, 0.2);
+	border-bottom: 1px solid rgba(176, 138, 74, 0.2);
+}
+
+.quote-section h2 {
+	font-size: 36px;
+	font-style: italic;
+	font-weight: normal;
+	max-width: 800px;
+	margin: 0 auto;
+	color: #e0d5c1;
+	line-height: 1.5;
+}
+
+/* CTA SECTION */
+.cta-section {
+	text-align: center;
+	padding: 120px 20px;
+}
+
+.cta-title {
+	font-size: 48px;
+	margin-bottom: 25px;
+	letter-spacing: 2px;
+}
+
+.cta-desc {
+	font-size: 20px;
+	max-width: 600px;
+	margin: 0 auto 40px;
+	opacity: 0.8;
+	line-height: 1.6;
+}
+
+.cta-buttons {
+	display: flex;
+	justify-content: center;
+	gap: 20px;
+	flex-wrap: wrap;
 }
 
 /* DUST PARTICLES */
@@ -165,6 +293,8 @@ header{
 .dust:nth-child(4){left:60%; top:95%; animation-duration:16s;}
 .dust:nth-child(5){left:75%; top:88%; animation-duration:10s;}
 .dust:nth-child(6){left:90%; top:92%; animation-duration:13s;}
+.dust:nth-child(7){left:15%; top:98%; animation-duration:15s;}
+.dust:nth-child(8){left:85%; top:82%; animation-duration:17s;}
 
 @keyframes float{
 	0%{transform:translateY(0); opacity:.2;}
@@ -175,15 +305,19 @@ header{
 /* FOOTER */
 footer{
 	text-align:center;
-	padding:60px;
-	opacity:.6;
+	padding:40px;
+	background: rgba(0,0,0,0.8);
+	border-top: 1px solid rgba(255,255,255,0.05);
+	opacity:.7;
+	font-size: 14px;
+	letter-spacing: 2px;
 }
 
 /* SCROLL ANIMATION */
 .reveal{
 	opacity:0;
-	transform:translateY(40px);
-	transition:all 0.8s ease;
+	transform:translateY(50px);
+	transition:all 0.9s cubic-bezier(0.5, 0, 0, 1);
 }
 
 .reveal.active{
@@ -192,11 +326,15 @@ footer{
 }
 
 /* MOBILE */
-@media(max-width:700px){
-	.hero h1{font-size:42px;}
+@media(max-width:768px){
+	.hero h1{font-size:52px;}
+	.hero p{font-size: 18px;}
 	.header-links{gap: 15px;}
-	.nav-link{font-size: 14px;}
-	.button{padding: 8px 14px; font-size: 14px;}
+	.nav-link{font-size: 14px; display:none;} /* Hide text link on small mobile to save space */
+	header{padding: 15px 20px;}
+	.story-section{padding: 60px 20px; font-size: 18px;}
+	.quote-section h2{font-size: 26px;}
+	.cta-title{font-size: 36px;}
 }
 
 </style>
@@ -205,6 +343,7 @@ footer{
 
 <body>
 
+<!-- HEADER -->
 <header>
 
 <div class="brand">
@@ -213,7 +352,6 @@ THE DUTTON RANCH
 
 <div class="header-links">
 	<a class="nav-link" href="https://duttonrewards.tech" target="_blank">Dutton Rewards</a>
-	
 	<a class="button" href="https://discord.gg/XatbESvgj6" target="_blank">Join Discord</a>
 </div>
 
@@ -225,6 +363,7 @@ THE DUTTON RANCH
 <section class="hero reveal">
 
 <h1>The Ranch Lives</h1>
+<p>Protect the land. Stand by your family. Welcome to the most immersive community on the frontier.</p>
 
 <div class="scroll-hint">
 SCROLL DOWN
@@ -252,21 +391,59 @@ alt="The Dutton Ranch">
 A LIVING WORLD
 </div>
 
-Once upon a wind-bitten valley where dust remembers every step…  
-The Dutton Ranch was born.
+Once upon a wind-bitten valley where dust remembers every step… The Dutton Ranch was born.
 
 <br><br>
 
-Not built from stone, but from voices, stories, and connection.
+We are not built from stone, but from voices, stories, and connection. Every message sent is a trail blazed in the wilderness. Every member who joins becomes a permanent part of the land.
 
 <br><br>
 
-Every message is a trail.  
-Every member is part of the land.
+This isn't just a server. It’s a brotherhood, a legacy, and a living world where loyalty means everything.
 
-<br><br>
+</section>
 
-This is a living community, not just a server.
+
+
+<!-- FEATURES GRID -->
+<section class="features-section reveal">
+	
+	<div class="feature-card">
+		<h3>The Community</h3>
+		<p>Join a highly active, dedicated group of members. Share stories, engage in deep discussions, and find your place among a family that watches each other's backs.</p>
+	</div>
+
+	<div class="feature-card">
+		<h3>Dutton Rewards</h3>
+		<p>Loyalty pays on the ranch. Participate in our ecosystem, earn your keep, and unlock exclusive perks through the official Dutton Rewards platform.</p>
+	</div>
+
+	<div class="feature-card">
+		<h3>The Legacy</h3>
+		<p>We honor the old ways. Built on the principles of respect, grit, and endurance, our server hosts regular events and roleplay elements that bring the frontier to life.</p>
+	</div>
+
+</section>
+
+
+
+<!-- QUOTE DIVIDER -->
+<section class="quote-section reveal">
+	<h2>"We don't share land here. We protect it."</h2>
+</section>
+
+
+
+<!-- CTA SECTION -->
+<section class="cta-section reveal">
+	
+	<h2 class="cta-title">Saddle Up.</h2>
+	<p class="cta-desc">The gates are open, but they won't be forever. Claim your spot on the ranch, meet the family, and start earning your rewards today.</p>
+
+	<div class="cta-buttons">
+		<a class="button" href="https://discord.gg/XatbESvgj6" target="_blank">Join The Discord</a>
+		<a class="btn-secondary" href="https://duttonrewards.tech" target="_blank">View Rewards</a>
+	</div>
 
 </section>
 
@@ -279,11 +456,14 @@ This is a living community, not just a server.
 <div class="dust"></div>
 <div class="dust"></div>
 <div class="dust"></div>
+<div class="dust"></div>
+<div class="dust"></div>
 
 
 
+<!-- FOOTER -->
 <footer>
-© The Dutton Ranch
+© 2026 The Dutton Ranch | Built for the Community
 </footer>
 
 
